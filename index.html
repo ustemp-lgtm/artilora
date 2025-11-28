@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artilora - Born of Nature, Shaped by Art</title>
+    <meta name="description" content="Artilora is a fusion of Art and Flora — symbolizing the union of creativity and nature.">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'artilora-dark': '#0a0a0a',
+                        'artilora-ivory': '#ffffff',
+                        'artilora-beige': '#f5f5dc',
+                        'artilora-green': '#4a6741',
+                        'artilora-brown': '#8c7e6a',
+                        'artilora-gold': '#C5A059',
+                    },
+                    fontFamily: {
+                        'sans': ['Cinzel', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .text-shine-gold {
+            background: linear-gradient(to right, #B8860B 20%, #FFD700 30%, #FFFFE0 40%, #FFD700 50%, #B8860B 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-artilora-ivory text-artilora-dark font-serif">
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md shadow-lg py-4 transition-all duration-500">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <img src="logo.png" alt="Artilora Logo" class="h-16 w-auto">
+            </a>
+            <div class="hidden md:flex space-x-8 text-artilora-ivory font-serif tracking-wide">
+                <a href="#" class="hover:text-artilora-green transition-colors">Home</a>
+                <a href="gallery.html" class="hover:text-artilora-green transition-colors">Gallery</a>
+                <a href="about.html" class="hover:text-artilora-green transition-colors">About</a>
+                <a href="contact.html" class="hover:text-artilora-green transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-end justify-center bg-artilora-dark overflow-hidden pb-32">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1470058869958-2a77ade41c02?q=80&w=2560&auto=format&fit=crop')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-artilora-dark/90"></div>
+        
+        <div class="relative z-10 text-center max-w-5xl mx-auto px-6 space-y-8 fade-in">
+            <h1 class="text-6xl md:text-8xl font-sans tracking-[0.2em] text-shine-gold mb-6 drop-shadow-lg">
+                ARTILORA
+            </h1>
+            <p class="text-2xl md:text-3xl text-shine-gold italic font-light tracking-wide">
+                "Born of nature, shaped by art."
+            </p>
+            <a href="gallery.html" class="inline-block border border-artilora-gold/50 text-shine-gold px-8 py-3 hover:bg-artilora-gold hover:text-artilora-dark transition-all duration-300 uppercase tracking-widest text-sm">
+                View Collection
+            </a>
+        </div>
+    </section>
+
+    <!-- Definition Section -->
+    <section class="container mx-auto px-6 py-32 max-w-4xl text-center">
+        <div class="prose prose-xl mx-auto text-artilora-dark font-light">
+            <p class="leading-loose text-xl">
+                <span class="text-6xl float-left mr-4 font-sans text-artilora-green opacity-50">A</span>
+                rtilora is a fusion of Art and Flora — symbolizing the union of creativity and nature. Every piece reflects the belief that true art already exists within natural forms, waiting to be discovered.
+            </p>
+        </div>
+    </section>
+
+    <!-- Brand Essence -->
+    <section class="bg-artilora-green/5 py-32">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-20">
+                <div class="md:w-1/2">
+                    <div class="aspect-[4/5] bg-artilora-brown/20 rounded-sm overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1000&auto=format&fit=crop" alt="Nature Art" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-1/2 space-y-8">
+                    <h2 class="text-5xl font-sans text-artilora-green mb-6">The Essence</h2>
+                    <div class="w-20 h-1 bg-artilora-brown/30 mb-8"></div>
+                    <p class="text-xl leading-relaxed text-artilora-dark/80 font-light">
+                        Artilora celebrates the harmony between the living language of nature and the creative vision of the artist. It is where raw material meets soulful imagination — where every cut, curve, and contour tells a story of transformation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Preview -->
+    <section class="container mx-auto px-6 py-32">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-sans text-artilora-green mb-4">Featured Works</h2>
+            <p class="text-artilora-brown italic">Glimpses of the collection</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="group cursor-pointer">
+                <div class="aspect-square bg-artilora-beige/20 overflow-hidden mb-4">
+                    <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Art Piece">
+                </div>
+                <h3 class="text-xl font-serif text-artilora-dark group-hover:text-artilora-green transition-colors">Natural Form 1</h3>
+                <p class="text-sm text-artilora-brown uppercase tracking-wider mt-1">Wood & Stone</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square bg-artilora-beige/20 overflow-hidden mb-4">
+                    <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Art Piece">
+                </div>
+                <h3 class="text-xl font-serif text-artilora-dark group-hover:text-artilora-green transition-colors">Natural Form 2</h3>
+                <p class="text-sm text-artilora-brown uppercase tracking-wider mt-1">Wood & Stone</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-square bg-artilora-beige/20 overflow-hidden mb-4">
+                    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Art Piece">
+                </div>
+                <h3 class="text-xl font-serif text-artilora-dark group-hover:text-artilora-green transition-colors">Natural Form 3</h3>
+                <p class="text-sm text-artilora-brown uppercase tracking-wider mt-1">Wood & Stone</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-16">
+            <a href="gallery.html" class="inline-block border-b border-artilora-green text-artilora-green pb-1 hover:opacity-70 transition-opacity">View Full Gallery</a>
+        </div>
+    </section>
+
+    <!-- Philosophy Quote -->
+    <section class="bg-artilora-dark text-artilora-ivory py-32 text-center px-6">
+        <div class="max-w-4xl mx-auto space-y-8">
+            <p class="text-3xl md:text-4xl font-serif italic leading-relaxed">
+                "Nature begins the creation; the artist completes it."
+            </p>
+            <p class="text-sm tracking-widest uppercase text-artilora-beige/60">— The Artilora Philosophy</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-artilora-green text-artilora-ivory py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="space-y-4">
+                    <h4 class="font-serif text-lg">Explore</h4>
+                    <ul class="space-y-2 text-sm opacity-80">
+                        <li><a href="gallery.html" class="hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About the Artist</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4 md:text-right">
+                    <h4 class="font-serif text-lg">Stay Connected</h4>
+                    <p class="text-sm opacity-80">Join our newsletter for updates on new collections.</p>
+                </div>
+            </div>
+            <div class="border-t border-artilora-ivory/10 mt-12 pt-8 text-center text-xs opacity-60">
+                &copy; 2024 Artilora. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

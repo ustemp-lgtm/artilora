@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Artilora</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'artilora-dark': '#0a0a0a',
+                        'artilora-ivory': '#ffffff',
+                        'artilora-beige': '#f5f5dc',
+                        'artilora-green': '#4a6741',
+                        'artilora-brown': '#8c7e6a',
+                    },
+                    fontFamily: {
+                        'sans': ['Cinzel', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-artilora-ivory text-artilora-dark font-serif">
+    <header class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md shadow-lg py-4">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="Artilora Logo" class="h-16 w-auto">
+            </a>
+            <div class="hidden md:flex space-x-8 text-artilora-ivory">
+                <a href="index.html" class="hover:text-artilora-green transition-colors">Home</a>
+                <a href="gallery.html" class="hover:text-artilora-green transition-colors font-bold">Gallery</a>
+                <a href="about.html" class="hover:text-artilora-green transition-colors">About</a>
+                <a href="contact.html" class="hover:text-artilora-green transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mx-auto px-6 py-24 pt-32">
+        <div class="text-center mb-20">
+            <h1 class="text-6xl font-sans text-artilora-green mb-6">The Collection</h1>
+            <p class="text-xl text-artilora-brown italic max-w-2xl mx-auto">
+                "Each work is a quiet collaboration between the natural world and human imagination."
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="group cursor-pointer">
+                <div class="aspect-[3/4] overflow-hidden">
+                    <img src="images/gallery/item-1.jpg" alt="Silent Guardian" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <h3 class="text-2xl font-serif text-artilora-dark mt-4">Silent Guardian</h3>
+                <p class="text-artilora-beige text-sm uppercase tracking-widest">Reclaimed Oak</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-[3/4] overflow-hidden">
+                    <img src="images/gallery/item-2.jpg" alt="River's Flow" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <h3 class="text-2xl font-serif text-artilora-dark mt-4">River's Flow</h3>
+                <p class="text-artilora-beige text-sm uppercase tracking-widest">Driftwood & Resin</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-[3/4] overflow-hidden">
+                    <img src="images/gallery/item-3.jpg" alt="Earth's Core" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <h3 class="text-2xl font-serif text-artilora-dark mt-4">Earth's Core</h3>
+                <p class="text-artilora-beige text-sm uppercase tracking-widest">Carved Stone</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-[3/4] overflow-hidden">
+                    <img src="images/gallery/item-4.jpg" alt="Wind Dancer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <h3 class="text-2xl font-serif text-artilora-dark mt-4">Wind Dancer</h3>
+                <p class="text-artilora-beige text-sm uppercase tracking-widest">Root Sculpture</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-[3/4] overflow-hidden">
+                    <img src="images/gallery/item-5.jpg" alt="Forest Spirit" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <h3 class="text-2xl font-serif text-artilora-dark mt-4">Forest Spirit</h3>
+                <p class="text-artilora-beige text-sm uppercase tracking-widest">Moss & Wood</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="aspect-[3/4] overflow-hidden">
+                    <img src="images/gallery/item-6.jpg" alt="Timeless Echo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                <h3 class="text-2xl font-serif text-artilora-dark mt-4">Timeless Echo</h3>
+                <p class="text-artilora-beige text-sm uppercase tracking-widest">Petrified Wood</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-artilora-green text-artilora-ivory py-16 mt-32">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm opacity-60">&copy; 2024 Artilora. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

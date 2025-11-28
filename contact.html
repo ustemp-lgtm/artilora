@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Artilora</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'artilora-dark': '#0a0a0a',
+                        'artilora-ivory': '#ffffff',
+                        'artilora-beige': '#f5f5dc',
+                        'artilora-green': '#4a6741',
+                        'artilora-brown': '#8c7e6a',
+                    },
+                    fontFamily: {
+                        'sans': ['Cinzel', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-artilora-ivory text-artilora-dark font-serif">
+    <header class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md shadow-lg py-4">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="Artilora Logo" class="h-16 w-auto">
+            </a>
+            <div class="hidden md:flex space-x-8 text-artilora-ivory">
+                <a href="index.html" class="hover:text-artilora-green transition-colors">Home</a>
+                <a href="gallery.html" class="hover:text-artilora-green transition-colors">Gallery</a>
+                <a href="about.html" class="hover:text-artilora-green transition-colors">About</a>
+                <a href="contact.html" class="hover:text-artilora-green transition-colors font-bold">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mx-auto px-6 py-24 pt-32">
+        <div class="max-w-5xl mx-auto bg-white shadow-2xl overflow-hidden flex flex-col md:flex-row">
+            <div class="md:w-1/2 bg-artilora-green text-artilora-ivory p-12 flex flex-col justify-between">
+                <div class="space-y-8">
+                    <h1 class="text-4xl font-sans tracking-widest">CONTACT</h1>
+                    <p class="text-artilora-ivory/80 leading-relaxed">
+                        Whether you are interested in a specific piece or wish to discuss a commission, I invite you to start a conversation.
+                    </p>
+                    
+                    <div class="space-y-6 mt-12">
+                        <div class="flex items-start space-x-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mt-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                            </svg>
+                            <div>
+                                <h3 class="font-serif text-lg">The Studio</h3>
+                                <p class="opacity-70 text-sm">Thrissur, Kerala</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mt-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                            </svg>
+                            <div>
+                                <h3 class="font-serif text-lg">Email</h3>
+                                <p class="opacity-70 text-sm">hello@artilora.art</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <p class="font-serif italic opacity-60">"Let nature speak."</p>
+                </div>
+            </div>
+
+            <div class="md:w-1/2 p-12 bg-artilora-ivory">
+                <div id="success-message" class="hidden bg-artilora-green/10 border border-artilora-green text-artilora-green px-4 py-3 rounded mb-6">
+                    Thank you for your message! We'll get back to you soon.
+                </div>
+                
+                <form action="https://formspree.io/f/mgvbepko" method="POST" class="space-y-6" onsubmit="handleSubmit(event)">
+                    <div>
+                        <label for="name" class="block text-sm font-bold text-artilora-brown mb-2 uppercase tracking-wider">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full bg-white border border-artilora-brown/20 px-4 py-3 focus:outline-none focus:border-artilora-green transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-bold text-artilora-brown mb-2 uppercase tracking-wider">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full bg-white border border-artilora-brown/20 px-4 py-3 focus:outline-none focus:border-artilora-green transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-bold text-artilora-brown mb-2 uppercase tracking-wider">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full bg-white border border-artilora-brown/20 px-4 py-3 focus:outline-none focus:border-artilora-green transition-colors resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="w-full bg-artilora-dark text-white py-4 font-serif tracking-wide hover:bg-artilora-green transition-colors duration-300">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-artilora-green text-artilora-ivory py-16 mt-32">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm opacity-60">&copy; 2024 Artilora. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const submitBtn = document.getElementById('submit-btn');
+            const successMsg = document.getElementById('success-message');
+            
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    successMsg.classList.remove('hidden');
+                    form.reset();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    alert('Oops! There was a problem. Please try again.');
+                }
+            } catch (error) {
+                alert('Oops! There was a problem. Please try again.');
+            } finally {
+                submitBtn.textContent = 'Send Message';
+                submitBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

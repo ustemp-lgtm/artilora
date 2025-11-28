@@ -1,0 +1,23 @@
+# Copy this content to .gitignore in your GitHub repository
+# D:\Temp\GitHUbOfflineWebsite\artilora\.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Don't ignore the static files - we need them!
+# This is a deployment repository, not a source repository

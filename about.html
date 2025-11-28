@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Artilora</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'artilora-dark': '#0a0a0a',
+                        'artilora-ivory': '#ffffff',
+                        'artilora-beige': '#f5f5dc',
+                        'artilora-green': '#4a6741',
+                        'artilora-brown': '#8c7e6a',
+                    },
+                    fontFamily: {
+                        'sans': ['Cinzel', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-artilora-ivory text-artilora-dark font-serif">
+    <header class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md shadow-lg py-4">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="logo.png" alt="Artilora Logo" class="h-16 w-auto">
+            </a>
+            <div class="hidden md:flex space-x-8 text-artilora-ivory">
+                <a href="index.html" class="hover:text-artilora-green transition-colors">Home</a>
+                <a href="gallery.html" class="hover:text-artilora-green transition-colors">Gallery</a>
+                <a href="about.html" class="hover:text-artilora-green transition-colors font-bold">About</a>
+                <a href="contact.html" class="hover:text-artilora-green transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mx-auto px-6 py-24 pt-32 space-y-32">
+        <div class="flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2">
+                <div class="aspect-[4/5] bg-artilora-brown/20 overflow-hidden rounded-sm shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop" alt="The Artist" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="md:w-1/2 space-y-8">
+                <h1 class="text-5xl font-sans text-artilora-green">The Artist's Journey</h1>
+                <p class="text-xl text-artilora-brown italic">"I do not shape the wood; I listen to it."</p>
+                <div class="prose prose-lg text-artilora-dark/80 space-y-4">
+                    <p>
+                        My journey began in the quiet forests of the Pacific Northwest, where the silence speaks louder than words. I learned early on that nature is the original artist. The wind sculpts the cliffs, the water smooths the stones, and time etches stories into the bark of ancient trees.
+                    </p>
+                    <p>
+                        Artilora was born from a desire to collaborate with these natural forces. My role is not to impose my will upon the material, but to uncover the form that has been waiting within it for centuries.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center max-w-4xl mx-auto space-y-16">
+            <h2 class="text-4xl font-sans text-artilora-green">The Process of Revelation</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+                <div class="space-y-4">
+                    <div class="text-6xl font-serif text-artilora-beige opacity-50">01</div>
+                    <h3 class="text-xl font-serif text-artilora-dark">Discovery</h3>
+                    <p class="text-artilora-dark/70">
+                        It begins with a walk. Finding the piece of wood or stone that calls out. It might be a fallen branch, a driftwood root, or a river stone.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <div class="text-6xl font-serif text-artilora-beige opacity-50">02</div>
+                    <h3 class="text-xl font-serif text-artilora-dark">Dialogue</h3>
+                    <p class="text-artilora-dark/70">
+                        Before a single cut is made, I spend days observing the material. Understanding its grain, its flaws, and its hidden strength.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <div class="text-6xl font-serif text-artilora-beige opacity-50">03</div>
+                    <h3 class="text-xl font-serif text-artilora-dark">Refinement</h3>
+                    <p class="text-artilora-dark/70">
+                        Using traditional tools, I gently remove the excess, allowing the inner form to emerge. It is a process of subtraction to achieve wholeness.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-artilora-green text-artilora-ivory py-16 mt-32">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm opacity-60">&copy; 2024 Artilora. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
