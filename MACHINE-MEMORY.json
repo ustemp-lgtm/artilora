@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "project_id": "artilora-website",
-  "last_updated": "2026-04-16T20:35:00+02:00",
+  "last_updated": "2026-04-16T20:55:00+02:00",
   "purpose": "Centralized AI Brain for Artilora Project",
   
   "system_context": {
@@ -62,6 +62,12 @@
       "failed_approaches": ["Assuming Windows path behavior in production build"],
       "verified_solution": "Match asset reference case exactly with file name in public directory (example: /Artilora_name.png).",
       "conceptual_lesson": "GitHub Linux runners enforce case-sensitive paths. Mixed-case file naming must be handled consistently across all page/component references."
+    },
+    {
+      "issue": "Git push returned HTTP 403 despite apparent API access",
+      "failed_approaches": ["Relying on existing token without refresh", "Adjusting credential helper only"],
+      "verified_solution": "Run gh auth refresh with required scopes (repo, workflow, read:org), complete device authorization promptly, then push via HTTPS.",
+      "conceptual_lesson": "Repository API permission checks and git transport authorization can diverge temporarily; always validate by an actual push after auth changes."
     }
   ],
 
@@ -85,12 +91,30 @@
     "repo_scope_lock": "STRICTLY artilora repository only",
     "current_goal": "Maintain successful GitHub Pages deployment baseline and prevent regression.",
     "latest_known_run": {
-      "run_id": 24527187013,
-      "head_sha": "3fa8d1320f684d75a5e94b3aeba00a0497bbf9b3",
+      "run_id": 24527276316,
+      "head_sha": "2c4eff907ba5fef52e2277498ed7621ecc2f3d67",
       "conclusion": "success",
       "failed_step": "none",
       "error_summary": "none"
     },
+    "verification_runs": [
+      {
+        "run_id": 24527187013,
+        "conclusion": "success",
+        "note": "First full green run after dependency and asset path remediation."
+      },
+      {
+        "run_id": 24527276316,
+        "conclusion": "success",
+        "note": "Post-memory-update validation run; confirms no regression."
+      }
+    ],
+    "session_lessons_learned": [
+      "For Nuxt/Vite on GitHub runners, optional native dependencies can fail nondeterministically; deterministic install order with explicit bindings is safer than raw npm ci in this repository state.",
+      "When one missing static asset is fixed, rerun until the next unresolved import is revealed; treat generate failures as a chain until a full green run is achieved.",
+      "Asset naming must be validated for Linux case sensitivity across all page and component references before production CI.",
+      "Authentication troubleshooting must end with a real git push test, not only gh auth status output."
+    ],
     "working_log": [
       {
         "timestamp": "2026-04-16T19:50:00+02:00",
