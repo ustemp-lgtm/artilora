@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "gallery": "Galería",
+    "about": "Acerca de",
+    "awards": "Premios",
+    "contact": "Contacto",
+    "studio": "Tour Virtual del Estudio"
+  },
+  "hero": {
+    "tagline": "Esculpido por la Naturaleza",
+    "title": "ARTILORA"
+  },
+  "language": {
+    "select": "Idioma"
+  }
+}

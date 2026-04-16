@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "gallery": "ギャラリー",
+    "about": "について",
+    "awards": "受賞歴",
+    "contact": "お問い合わせ",
+    "studio": "バーチャルスタジオツアー"
+  },
+  "hero": {
+    "tagline": "自然が彫刻した",
+    "title": "ARTILORA"
+  },
+  "language": {
+    "select": "言語"
+  }
+}

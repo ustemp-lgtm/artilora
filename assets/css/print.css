@@ -1,0 +1,206 @@
+/* Print-Friendly Styles for Artilora */
+
+@media print {
+  /* Reset page margins */
+  @page {
+    margin: 1cm;
+    size: A4;
+  }
+
+  /* Hide unnecessary elements */
+  header,
+  nav,
+  .header,
+  .navigation,
+  .social-media-bar,
+  .newsletter-signup,
+  .share-buttons,
+  .print-button,
+  .ai-art-consultant,
+  .custom-cursor,
+  .floating-particles,
+  .countdown-timer,
+  button,
+  .cta-button,
+  video,
+  .video-background {
+    display: none !important;
+  }
+
+  /* Body styles */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  /* Container adjustments */
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    color: black !important;
+    page-break-after: avoid;
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 24pt;
+    margin-bottom: 12pt;
+  }
+
+  h2 {
+    font-size: 18pt;
+    margin-bottom: 10pt;
+  }
+
+  h3 {
+    font-size: 14pt;
+    margin-bottom: 8pt;
+  }
+
+  p {
+    color: black !important;
+    margin-bottom: 10pt;
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Images */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+    display: block;
+    margin: 10pt auto;
+  }
+
+  /* Gallery specific */
+  .gallery-item {
+    page-break-inside: avoid;
+    margin-bottom: 20pt;
+    border: 1px solid #ccc;
+    padding: 10pt;
+  }
+
+  .sculpture-title {
+    font-size: 16pt;
+    font-weight: bold;
+    margin-bottom: 8pt;
+    color: black !important;
+  }
+
+  .sculpture-description {
+    font-size: 11pt;
+    color: #333 !important;
+    margin-bottom: 8pt;
+  }
+
+  .sculpture-details {
+    font-size: 10pt;
+    color: #666 !important;
+  }
+
+  /* Links */
+  a {
+    color: black !important;
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+  }
+
+  /* Remove link URLs for internal navigation */
+  a[href^="/"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  /* Tables */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 10pt;
+  }
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8pt;
+    text-align: left;
+  }
+
+  th {
+    background: #f0f0f0;
+    font-weight: bold;
+  }
+
+  /* Page breaks */
+  .page-break {
+    page-break-before: always;
+  }
+
+  .no-break {
+    page-break-inside: avoid;
+  }
+
+  /* Footer for print */
+  .print-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 9pt;
+    color: #666;
+    border-top: 1px solid #ccc;
+    padding-top: 5pt;
+  }
+
+  /* Add website URL to print */
+  body:after {
+    content: "Artilora - www.artilora.art";
+    display: block;
+    text-align: center;
+    margin-top: 20pt;
+    padding-top: 10pt;
+    border-top: 1px solid #ccc;
+    font-size: 10pt;
+    color: #666;
+  }
+
+  /* Ensure backgrounds are printed (optional) */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Remove shadows and effects */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Optimize spacing */
+  section {
+    margin-bottom: 15pt;
+  }
+
+  /* Gallery grid for print */
+  .gallery-grid {
+    display: block !important;
+  }
+
+  .gallery-grid > * {
+    display: block;
+    margin-bottom: 20pt;
+    page-break-inside: avoid;
+  }
+}

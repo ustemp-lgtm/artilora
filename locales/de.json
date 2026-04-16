@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "gallery": "Galerie",
+    "about": "Über Uns",
+    "awards": "Auszeichnungen",
+    "contact": "Kontakt",
+    "studio": "Virtuelle Atelierführung"
+  },
+  "hero": {
+    "tagline": "Von der Natur Geformt",
+    "title": "ARTILORA"
+  },
+  "primus": {
+    "subtitle": "DER ANFANG",
+    "title": "PRIMUS",
+    "headline": "Wo Primus Zu Sprechen Beginnt",
+    "listen": "Primus Anhören",
+    "paragraph1": "[Übersetzung erforderlich - Professioneller Übersetzer empfohlen]",
+    "paragraph2": "[Übersetzung erforderlich - Professioneller Übersetzer empfohlen]",
+    "paragraph3": "[Übersetzung erforderlich - Professioneller Übersetzer empfohlen]",
+    "closing": "Hier kehrt ARTILORA zum Atem zurück."
+  },
+  "definition": {
+    "text": "[Übersetzung erforderlich - Professioneller Übersetzer empfohlen]"
+  },
+  "essence": {
+    "title": "DIE ESSENZ",
+    "text": "[Übersetzung erforderlich - Professioneller Übersetzer empfohlen]"
+  },
+  "language": {
+    "select": "Sprache"
+  }
+}

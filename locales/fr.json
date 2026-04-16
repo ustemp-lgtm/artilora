@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "gallery": "Galerie",
+    "about": "À Propos",
+    "awards": "Récompenses",
+    "contact": "Contact",
+    "studio": "Visite Virtuelle de l'Atelier"
+  },
+  "hero": {
+    "tagline": "Sculpté par la Nature",
+    "title": "ARTILORA"
+  },
+  "primus": {
+    "subtitle": "LE COMMENCEMENT",
+    "title": "PRIMUS",
+    "headline": "Où Primus Commence à Parler",
+    "listen": "Écouter Primus",
+    "paragraph1": "[Translation needed - Professional translator recommended]",
+    "paragraph2": "[Translation needed - Professional translator recommended]",
+    "paragraph3": "[Translation needed - Professional translator recommended]",
+    "closing": "Ici, ARTILORA revient au souffle."
+  },
+  "definition": {
+    "text": "[Translation needed - Professional translator recommended]"
+  },
+  "essence": {
+    "title": "L'ESSENCE",
+    "text": "[Translation needed - Professional translator recommended]"
+  },
+  "countdown": {
+    "title": "Prochaine Exposition"
+  },
+  "gallery": {
+    "title": "Aperçus à Travers les Yeux d'Arty Et",
+    "subtitle": "Les pensées d'Arty, autrefois silencieuses, deviennent art",
+    "viewFull": "VOIR LA GALERIE COMPLÈTE"
+  },
+  "philosophy": {
+    "quote": "Où l'Art Grandit Tranquillement",
+    "text": "[Translation needed - Professional translator recommended]",
+    "attribution": "Une Philosophie Artilorienne"
+  },
+  "newsletter": {
+    "title": "Restez Connecté",
+    "subtitle": "Abonnez-vous pour recevoir des mises à jour sur les nouvelles sculptures et expositions",
+    "placeholder": "Entrez votre email",
+    "button": "S'abonner",
+    "success": "Merci de vous être abonné!",
+    "error": "Veuillez entrer une adresse email valide"
+  },
+  "footer": {
+    "tagline": "Où l'Art Grandit Tranquillement",
+    "rights": "Tous Droits Réservés",
+    "followUs": "Suivez-Nous"
+  },
+  "language": {
+    "select": "Langue"
+  }
+}

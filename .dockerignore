@@ -1,0 +1,11 @@
+﻿# .dockerignore
+node_modules
+.dockerignore
+.git
+.vscode
+.nuxt
+.output
+dist
+coverage
+npm-debug.log
+yarn-error.log

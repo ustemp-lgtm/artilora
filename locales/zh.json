@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "首页",
+    "gallery": "画廊",
+    "about": "关于",
+    "awards": "奖项",
+    "contact": "联系",
+    "studio": "虚拟工作室之旅"
+  },
+  "hero": {
+    "tagline": "自然雕刻",
+    "title": "ARTILORA"
+  },
+  "language": {
+    "select": "语言"
+  }
+}

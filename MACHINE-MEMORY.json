@@ -1,0 +1,70 @@
+{
+  "schema_version": "2.0",
+  "project_id": "artilora-website",
+  "last_updated": "2026-04-14T08:00:00+02:00",
+  "purpose": "Centralized AI Brain for Artilora Project",
+  
+  "system_context": {
+    "architecture": "Father's laptop (contains project folder + Kiro/Antigravity for vibe coding) -> SMB/CIFS Shared Folder -> Home Lab (Windows 11 + VMware) -> Ubuntu Server 24.04 VM -> Docker Container (artilora-nuxt-1).",
+    "deployment_flow": "Changes made by AI on father's laptop save directly via CIFS to the VM's /home/frank/artilora directory. Hot-reloading updates the container live.",
+    "current_ip": "192.168.72.113 (Test IP, will change upon final home lab migration)",
+    "container_details": {
+      "name": "artilora-nuxt-1",
+      "port": 3009,
+      "base_image": "node:20-alpine",
+      "restart_policy": "unless-stopped"
+    },
+    "project_stack": {
+      "framework": "Nuxt 3",
+      "styling": "Tailwind CSS",
+      "ssr": false,
+      "language": "TypeScript / Vue"
+    }
+  },
+
+  "historical_issues_and_resolutions": [
+    {
+      "issue": "Browser Caching Old Versions",
+      "failed_approaches": ["Restarting Nuxt", "Rebuilding Docker repeatedly without checking cache"],
+      "verified_solution": "Always command user to Hard Refresh/Clear Cache (Ctrl+Shift+R or Ctrl+Shift+Delete) after any deployment.",
+      "conceptual_lesson": "The browser aggressively caches Nuxt static assets. Hot-reloading works in dev, but when major structural changes happen, cache clearing is mandatory to see reality."
+    },
+    {
+      "issue": "Plink SSH Variable Expansion",
+      "failed_approaches": ["Using `$(...)` in inline plink -batch commands on Windows", "Piping stdin to sudo (echo password | sudo -S) which hangs"],
+      "verified_solution": "Use NOPASSWD for sudo or write complex commands into an `.sh` script, transfer via pscp, and execute remotely.",
+      "conceptual_lesson": "Windows local shell will interpolate variables before Plink sends them. Remote scripting creates an impenetrable isolation layer that guarantees execution integrity."
+    },
+    {
+      "issue": "File Sync Drift Between Local and Server",
+      "failed_approaches": ["Assuming editing local memory files also updated the server", "Modifying docker-compose.yml on the server directly"],
+      "verified_solution": "Perform strict byte-count verification (`wc -c`) between local and remote files before any migration.",
+      "conceptual_lesson": "Separated file systems will drift without strict synchronization disciplines. Trust, but verify via tooling."
+    },
+    {
+      "issue": "UI/CSS Layout Instability (Z-index/Grid overlaps)",
+      "failed_approaches": ["Adding generic Tailwind classes like z-50 blindly", "Overlaying thick visual grids that obstructed text"],
+      "verified_solution": "Removed grid from all image zones (Gallery), localized the grid effect, and enforced strict left alignment for textual content.",
+      "conceptual_lesson": "Less is more. Pixel-perfect control must be maintained within the Vue components directly rather than relying on abstract wireframing imports."
+    }
+  ],
+
+  "operational_files": {
+    "README.md": "Single source of truth for humans. Start here.",
+    "PROJECT_MEMORY.md": "Complete, human-readable timeline and state of the project.",
+    "MACHINE-MEMORY.json": "This exact file. The strict JSON brain optimized for agent ingestion.",
+    ".kiro/memory/LESSONS_LEARNED.md": "The chronological narrative of all rules and acquired knowledge.",
+    "docker-compose.yml": "Defines the container mount pointing to /home/frank/artilora and binds port 3009.",
+    "nuxt.config.ts": "Primary application configuration, handles Vite server polling and dev rules.",
+    "app.vue": "Root layout structure."
+  },
+
+  "agent_instructions": {
+    "prime_directive": "Read this file upon entry. You are restoring your brain. Do not repeat historical mistakes.",
+    "rule_1": "NEVER repeat a failing approach. If it fails twice, STOP. Read the logs, search documentation, write a debug script, formulate a new hypothesis.",
+    "rule_2": "ALWAYS restart the Docker container (`docker restart artilora-nuxt-1` or via `docker-restart.ps1`) after altering configuration files.",
+    "rule_3": "Do NOT break the aesthetic. Use Bradley Hand ITC, smooth golden gradients, and dark luxury themes. Minimalist, premium, ethereal.",
+    "rule_4": "Do NOT use generic commands without verifying their effects. Do NOT use abstract design software; modify Nuxt/Tailwind CSS files directly for pixel perfection.",
+    "rule_5": "When completing a major implementation or bug fix, explicitly update BOTH PROJECT_MEMORY.md and this MACHINE-MEMORY.json."
+  }
+}

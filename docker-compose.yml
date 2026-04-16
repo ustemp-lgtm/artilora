@@ -1,0 +1,20 @@
+services:
+  nuxt:
+    build: .
+    image: artilora-nuxt:latest
+    working_dir: /usr/src/app
+    volumes:
+      - '/home/frank/artilora:/usr/src/app:delegated'
+      - node_modules:/usr/src/app/node_modules
+    environment:
+      NODE_ENV: development
+      HOST: '0.0.0.0'
+    ports:
+      - '0.0.0.0:3009:3000'
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+volumes:
+  node_modules:
+    driver: local

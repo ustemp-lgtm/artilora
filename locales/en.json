@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Home",
+    "gallery": "Gallery",
+    "about": "About",
+    "awards": "Awards",
+    "contact": "Contact",
+    "studio": "Virtual Studio Tour"
+  },
+  "hero": {
+    "tagline": "Sculpted By Nature",
+    "title": "ARTILORA"
+  },
+  "primus": {
+    "subtitle": "THE BEGINNING",
+    "title": "PRIMUS",
+    "headline": "Where Primus Begins to Speak",
+    "listen": "Listen to Primus",
+    "paragraph1": "Primus is more than a sculpture. It is the first inward pause from which ARTILORA emerged. Formed from Aerial Root Sculpture in Ficus benghalensis and shaped through listening rather than force, Primus embodies humility as strength and silence as origin. Neither man nor myth, it kneels in remembrance—returning to the earth that holds all beginnings. This form is not for sale. It remains in the ARTILORA studio as a witness, a compass, and a promise: that every creation begins by bowing to truth.",
+    "paragraph2": "It is a moment of stillness made visible—the breath taken before becoming. Shaped from Aerial Root Sculpture in Ficus benghalensis that have known time, weight, and patience, it rises not through force but through listening. In its silence lives endurance; in its posture, reverence. Primus is not offered for ownership. It remains in the ARTILORA studio as a living witness—reminding us that all true creation begins when the soul bows, listens, and allows truth to take form.",
+    "paragraph3": "A moment of stillness where form learned to listen before it learned to rise. Shaped through patience rather than force, Primus carries the weight of time and returns gently to the earth that holds all beginnings. In its quiet posture lives endurance, reverence, and the courage to begin without certainty. It stands as a living compass—that every creation begins by honoring the unseen before the visible takes shape.",
+    "closing": "Here, ARTILORA returns to breath."
+  },
+  "definition": {
+    "text": "ARTILORA is a quiet harmony of Art and Flora. ARTY is the living heart of Artilora - the meeting point where social awareness and human action pause to listen to the natural world. Within Artilora, every wound carried by nature is felt as a deep pain, a shared sorrow held in its heart. We believe the most profound art is not created, but revealed. Each work is an act of recognition rather than invention - a gentle uncovering of the beauty already dwelling within nature, waiting for attentive hands and silent presence to bring it into light."
+  },
+  "essence": {
+    "title": "THE ESSENCE",
+    "text": "At Artilora, we believe nature is the ultimate artist. We work with body, mind, and soul in harmony with the elements, listening to the stories found in the shadows of each sculpture, the patterns of the wood grain, and the curves of weathered roots. By bringing these visions to life, we ensure every piece carries the ancient whisper of the earth and the enduring touch of human passion."
+  },
+  "countdown": {
+    "title": "Next Exhibition"
+  },
+  "gallery": {
+    "title": "Glimpses Through Arty's Eyes And",
+    "subtitle": "Arty's thoughts, once quietly held, become art",
+    "viewFull": "VIEW FULL GALLERY"
+  },
+  "philosophy": {
+    "quote": "Where Art Grows Quietly",
+    "text": "To Arty, the heart of Artilora, art is a living presence. Rooted in nature and refined by emotion, each creation is born of mindful thought and calm intention. The result is a harmonious completion of quiet strength and timeless soul - works designed to be felt as much as they are seen.",
+    "attribution": "An Artilorian Philosophy"
+  },
+  "newsletter": {
+    "title": "Stay Connected",
+    "subtitle": "Subscribe to receive updates about new sculptures and exhibitions",
+    "placeholder": "Enter your email",
+    "button": "Subscribe",
+    "success": "Thank you for subscribing!",
+    "error": "Please enter a valid email address"
+  },
+  "footer": {
+    "tagline": "Where Art Grows Quietly",
+    "rights": "All Rights Reserved",
+    "followUs": "Follow Us"
+  },
+  "language": {
+    "select": "Language"
+  }
+}

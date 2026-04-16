@@ -1,0 +1,172 @@
+{
+  "zones": [
+    {
+      "id": "todo",
+      "name": "TO DO",
+      "subtitle": "On the Workboard",
+      "description": "This is the realm of listening. Here, the material dreams in silence. Ideas circle gently around it—waiting, watching, breathing. Before the hand moves, the soul prepares.",
+      "atmosphere": "A space of anticipation where raw materials hold infinite possibility.",
+      "signature_image": "/101_arty_Comfort.png",
+      "image": "/studio/todo-main.jpg",
+      "thumbnail": "/studio/todo-thumb.jpg",
+      "hotspots": [
+        {
+          "id": "td-1",
+          "x": 40,
+          "y": 50,
+          "title": "Raw Materials",
+          "description": "Untouched aerial roots rest here, each holding the promise of transformation. In this quiet space, the sculptor observes and listens before the first touch.",
+          "category": "material"
+        },
+        {
+          "id": "td-2",
+          "x": 65,
+          "y": 45,
+          "title": "The Workboard",
+          "description": "Ideas and sketches gather here—visual whispers of what might become. This is where intention takes its first visible form.",
+          "category": "process"
+        }
+      ]
+    },
+    {
+      "id": "donot",
+      "name": "DO NOT",
+      "subtitle": "The Silent Watch",
+      "description": "Some strength lies in restraint. Some beauty lives in boundaries. In this chapter, the sculptor chooses not to force, but to protect the essence of what might become.",
+      "atmosphere": "A space of discipline where knowing what not to do is as important as action.",
+      "signature_image": "/102_arty_A_day_That_is-Mine.png",
+      "image": "/studio/donot-main.jpg",
+      "thumbnail": "/studio/donot-thumb.jpg",
+      "hotspots": [
+        {
+          "id": "dn-1",
+          "x": 50,
+          "y": 40,
+          "title": "Tools in Rest",
+          "description": "Shadowed tools hanging neatly in a row. Each tool knows its purpose, and each knows when to remain still. Restraint is a form of respect.",
+          "category": "tool"
+        },
+        {
+          "id": "dn-2",
+          "x": 35,
+          "y": 60,
+          "title": "Boundaries of Creation",
+          "description": "Not every idea must be pursued. Not every material must be touched. This space honors the wisdom of choosing carefully.",
+          "category": "inspiration"
+        }
+      ]
+    },
+    {
+      "id": "doing",
+      "name": "DOING",
+      "subtitle": "Being Sculpted",
+      "description": "Here, creation finds its pulse. Material and maker enter a tender conversation—every strike, every curve, a dialogue between intention and revelation.",
+      "atmosphere": "The heart of transformation where hands and vision meet.",
+      "signature_image": "/103_arty_The_Darkness_of_Depth.png",
+      "image": "/studio/doing-main.jpg",
+      "thumbnail": "/studio/doing-thumb.jpg",
+      "hotspots": [
+        {
+          "id": "dg-1",
+          "x": 45,
+          "y": 50,
+          "title": "The Sculpting Process",
+          "description": "Motion—chisel dust rising, material yielding. Each movement is deliberate, each cut a conversation. The sculpture emerges not by force, but through listening.",
+          "category": "process"
+        },
+        {
+          "id": "dg-2",
+          "x": 70,
+          "y": 45,
+          "title": "Work in Progress",
+          "description": "A form taking shape, revealing itself slowly. The sculptor follows the material's guidance, discovering rather than imposing.",
+          "category": "artwork"
+        }
+      ]
+    },
+    {
+      "id": "done",
+      "name": "DONE",
+      "subtitle": "Crafted to Completion",
+      "description": "A moment of settled breath. The work stands complete—balanced, quiet, whole. Not an ending, but a place where nothing more needs to be touched.",
+      "atmosphere": "Stillness and completion. The sculpture has found its final form.",
+      "signature_image": "/arty_104_mother_child.png",
+      "image": "/studio/done-main.jpg",
+      "thumbnail": "/studio/done-thumb.jpg",
+      "hotspots": [
+        {
+          "id": "dn-1",
+          "x": 50,
+          "y": 50,
+          "title": "Completed Sculpture",
+          "description": "The work stands complete, glowing with presence. Every curve, every surface speaks of the journey from raw material to finished form.",
+          "category": "artwork"
+        },
+        {
+          "id": "dn-2",
+          "x": 30,
+          "y": 55,
+          "title": "Final Inspection",
+          "description": "A quiet moment of observation. The sculptor steps back, ensuring nothing more is needed. Completion is knowing when to stop.",
+          "category": "process"
+        }
+      ]
+    },
+    {
+      "id": "outdone",
+      "name": "OUTDONE",
+      "subtitle": "Legendary",
+      "description": "Some works step beyond the studio's walls and enter the realm of legend. They hold stories larger than their shape, echoing time long after the tools are laid to rest.",
+      "atmosphere": "Where masterpieces transcend their physical form and become timeless.",
+      "signature_image": "/arty_105_mother_child_part2.png",
+      "image": "/studio/outdone-main.jpg",
+      "thumbnail": "/studio/outdone-thumb.jpg",
+      "hotspots": [
+        {
+          "id": "od-1",
+          "x": 50,
+          "y": 45,
+          "title": "Signature Masterpiece",
+          "description": "A dramatic presentation of work that has achieved legendary status. This sculpture carries a presence that extends beyond its material form.",
+          "category": "artwork"
+        },
+        {
+          "id": "od-2",
+          "x": 65,
+          "y": 55,
+          "title": "Legacy Display",
+          "description": "Works that have defined the studio's voice. These pieces represent not just skill, but the culmination of vision, patience, and artistic truth.",
+          "category": "artwork"
+        }
+      ]
+    },
+    {
+      "id": "outcomes",
+      "name": "OUTCOMES",
+      "subtitle": "Living Beyond the Studio",
+      "description": "The journey continues—new eyes, new emotions, new stories. Every viewer finishes the sculpture in their own heart. This is where art becomes life.",
+      "atmosphere": "The beginning of a new chapter as sculptures find their homes and stories.",
+      "signature_image": "/arty_primus_updated.png",
+      "image": "/studio/outcomes-main.jpg",
+      "thumbnail": "/studio/outcomes-thumb.jpg",
+      "hotspots": [
+        {
+          "id": "oc-1",
+          "x": 45,
+          "y": 50,
+          "title": "Gallery Placement",
+          "description": "Sculptures placed in galleries and homes, beginning their new lives. Each piece now belongs to those who connect with it, continuing its story.",
+          "category": "artwork"
+        },
+        {
+          "id": "oc-2",
+          "x": 70,
+          "y": 45,
+          "title": "Collector Connections",
+          "description": "The relationship between artwork and viewer. Here, the sculpture's journey transforms from creation to connection, from studio to soul.",
+          "category": "inspiration"
+        }
+      ]
+    }
+  ]
+}
