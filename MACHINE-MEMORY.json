@@ -1,12 +1,12 @@
 {
   "schema_version": "2.0",
   "project_id": "artilora-website",
-  "last_updated": "2026-04-14T08:00:00+02:00",
+  "last_updated": "2026-04-16T20:35:00+02:00",
   "purpose": "Centralized AI Brain for Artilora Project",
   
   "system_context": {
-    "architecture": "Father's laptop (contains project folder + Kiro/Antigravity for vibe coding) -> SMB/CIFS Shared Folder -> Home Lab (Windows 11 + VMware) -> Ubuntu Server 24.04 VM -> Docker Container (artilora-nuxt-1).",
-    "deployment_flow": "Changes made by AI on father's laptop save directly via CIFS to the VM's /home/frank/artilora directory. Hot-reloading updates the container live.",
+    "architecture": "Father's laptop (contains project folder + Kiro/Antigravity for vibe coding) -> SMB/CIFS Shared Folder -> Home Lab (Windows 11 + VMware) -> Ubuntu Server 24.04 VM -> Docker Container (artilora-nuxt-1). GitHub repository (ustemp-lgtm/artilora) is now active for GitHub Pages CI/CD.",
+    "deployment_flow": "Changes made by AI on father's laptop save directly via CIFS to the VM's /home/frank/artilora directory for local preview. Public deployment is now driven by GitHub Actions workflow .github/workflows/deploy.yml that runs nuxt generate and deploys to GitHub Pages.",
     "current_ip": "192.168.72.113 (Test IP, will change upon final home lab migration)",
     "container_details": {
       "name": "artilora-nuxt-1",
@@ -17,8 +17,12 @@
     "project_stack": {
       "framework": "Nuxt 3",
       "styling": "Tailwind CSS",
-      "ssr": false,
+      "ssr": true,
       "language": "TypeScript / Vue"
+    },
+    "deployment_targets": {
+      "local_preview": "Docker container artilora-nuxt-1 on port 3009",
+      "public_production": "GitHub Pages via actions/deploy-pages@v4"
     }
   },
 
@@ -46,6 +50,18 @@
       "failed_approaches": ["Adding generic Tailwind classes like z-50 blindly", "Overlaying thick visual grids that obstructed text"],
       "verified_solution": "Removed grid from all image zones (Gallery), localized the grid effect, and enforced strict left alignment for textual content.",
       "conceptual_lesson": "Less is more. Pixel-perfect control must be maintained within the Vue components directly rather than relying on abstract wireframing imports."
+    },
+    {
+      "issue": "GitHub Actions dependency install failed due to missing optional native bindings (oxc-minify and rollup)",
+      "failed_approaches": ["Using npm ci directly in CI", "Using npm install --include=optional with postinstall enabled", "Installing no-save native bindings in separate commands"],
+      "verified_solution": "In workflow install step, use npm install --include=optional --ignore-scripts, then install BOTH Linux native bindings in ONE command, then run npx nuxt prepare.",
+      "conceptual_lesson": "npm optional dependency behavior on CI can be non-deterministic; separate no-save installs can effectively undo prior temporary installs. Use one deterministic command for all required native bindings."
+    },
+    {
+      "issue": "Linux case-sensitive asset path mismatch during static build",
+      "failed_approaches": ["Assuming Windows path behavior in production build"],
+      "verified_solution": "Match asset reference case exactly with file name in public directory (example: /Artilora_name.png).",
+      "conceptual_lesson": "GitHub Linux runners enforce case-sensitive paths. Mixed-case file naming must be handled consistently across all page/component references."
     }
   ],
 
@@ -53,10 +69,50 @@
     "README.md": "Single source of truth for humans. Start here.",
     "PROJECT_MEMORY.md": "Complete, human-readable timeline and state of the project.",
     "MACHINE-MEMORY.json": "This exact file. The strict JSON brain optimized for agent ingestion.",
+    ".github/workflows/deploy.yml": "Canonical CI/CD pipeline for GitHub Pages build and deploy.",
     ".kiro/memory/LESSONS_LEARNED.md": "The chronological narrative of all rules and acquired knowledge.",
     "docker-compose.yml": "Defines the container mount pointing to /home/frank/artilora and binds port 3009.",
+    "pages/about.vue": "Contains one of the Artilora logo references; case-sensitive asset paths must remain correct for Linux builds.",
     "nuxt.config.ts": "Primary application configuration, handles Vite server polling and dev rules.",
     "app.vue": "Root layout structure."
+  },
+
+  "live_operation_state": {
+    "session_id": "S015",
+    "session_name": "GitHub Pages Deployment Debugging",
+    "status": "in_progress",
+    "repo_scope_lock": "STRICTLY artilora repository only",
+    "current_goal": "Make Deploy to GitHub Pages workflow pass build and deploy jobs.",
+    "latest_known_run": {
+      "run_id": 24526997904,
+      "head_sha": "179a5acbf69f059d629f968c222a5fb5d591304e",
+      "conclusion": "failure",
+      "failed_step": "build -> Generate static site",
+      "error_summary": "Rollup failed to resolve import '/artilora_name.png' from pages/about.vue"
+    },
+    "working_log": [
+      {
+        "timestamp": "2026-04-16T19:50:00+02:00",
+        "observation": "Initial deploy run 24523608437 failed in install step with missing @oxc-minify/binding-linux-x64-gnu.",
+        "procedure_selected": "Switch CI install from npm ci to npm install with optional dependencies.",
+        "result": "Run advanced but still failed due to optional native binding instability.",
+        "next_planned_action": "Use deterministic install with ignore-scripts, explicit native bindings, and manual nuxt prepare."
+      },
+      {
+        "timestamp": "2026-04-16T20:10:00+02:00",
+        "observation": "Separate no-save installs caused alternating missing native modules (oxc then rollup).",
+        "procedure_selected": "Install both native bindings in a single npm install --no-save command.",
+        "result": "Install step succeeded; pipeline advanced to generate step.",
+        "next_planned_action": "Fix static build errors revealed after dependency stage."
+      },
+      {
+        "timestamp": "2026-04-16T20:30:00+02:00",
+        "observation": "Generate step failed with case-sensitive unresolved import '/artilora_name.png' from pages/about.vue.",
+        "procedure_selected": "Align path to '/Artilora_name.png' to match public asset filename exactly.",
+        "result": "Code patched locally; pending commit/push and rerun validation.",
+        "next_planned_action": "Commit path fix, push, monitor next run until build is green."
+      }
+    ]
   },
 
   "agent_instructions": {
@@ -65,6 +121,7 @@
     "rule_2": "ALWAYS restart the Docker container (`docker restart artilora-nuxt-1` or via `docker-restart.ps1`) after altering configuration files.",
     "rule_3": "Do NOT break the aesthetic. Use Bradley Hand ITC, smooth golden gradients, and dark luxury themes. Minimalist, premium, ethereal.",
     "rule_4": "Do NOT use generic commands without verifying their effects. Do NOT use abstract design software; modify Nuxt/Tailwind CSS files directly for pixel perfection.",
-    "rule_5": "When completing a major implementation or bug fix, explicitly update BOTH PROJECT_MEMORY.md and this MACHINE-MEMORY.json."
+    "rule_5": "When completing a major implementation or bug fix, explicitly update BOTH PROJECT_MEMORY.md and this MACHINE-MEMORY.json.",
+    "rule_6": "CRITICAL: REPOSITORY ISOLATION. Operational scope is STRICTLY locked to the artilora project. Under NO circumstances read, audit, modify, branch, or push to other repositories (e.g., artilora-academy, portfolio, landing-page-template, ecommerce-backend). Instantly halt any out-of-bounds operations."
   }
 }

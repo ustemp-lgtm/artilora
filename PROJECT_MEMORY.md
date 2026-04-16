@@ -5,8 +5,8 @@
 > reconstruct project context, understand all decisions, avoid past mistakes, and continue work
 > seamlessly without gaps.
 >
-> **Last Updated:** 2026-04-14T07:53:00+02:00
-> **Session:** S013 — Pre-Migration Verification & VM Transfer Prep
+> **Last Updated:** 2026-04-16T20:35:00+02:00
+> **Session:** S015 — GitHub Pages Deployment Debugging
 
 ---
 
@@ -123,12 +123,69 @@ The website is built for the user's father. The development workflow is:
 | Styling | Tailwind CSS v6.12.1 |
 | Server Engine | Nitro 2.13.1 |
 | Containerization | Docker + Docker Compose |
-| SSR | Disabled (`ssr: false` in nuxt.config.ts) |
+| SSR | Enabled (`ssr: true` in nuxt.config.ts) |
 | Hot Reload | Enabled via Vite polling (1s interval) |
 
 ---
 
 ## SECTION 4: CHANGE LOG
+
+### 2026-04-16 — S015: GitHub Pages Deployment Failure Triage (In Progress)
+
+**Context:** The source code is now on GitHub (`ustemp-lgtm/artilora`) and the deployment workflow is triggering, but the build has been failing in sequence at different stages. This session is focused on iterative remediation with strict repository isolation.
+
+**Execution Scope Lock:**
+- Operate only inside `artilora` repository.
+- No navigation to or interaction with any other repository.
+
+**Live Procedure Log (for interruption-safe handoff):**
+1. **Observation:** Run `24523608437` failed at `Install dependencies` due to missing `@oxc-minify/binding-linux-x64-gnu`.
+   - **Hypothesis:** npm optional dependency resolution bug on GitHub runner.
+   - **Procedure:** Changed workflow install command from `npm ci` to `npm install --include=optional`.
+   - **Outcome:** Failure persisted.
+
+2. **Observation:** Install step still unstable with optional native modules missing.
+   - **Hypothesis:** postinstall timing and npm optional dependency behavior are non-deterministic.
+   - **Procedure:** Changed workflow to:
+     - `npm install --include=optional --ignore-scripts`
+     - explicit native installs
+     - `npx nuxt prepare`
+   - **Outcome:** Install stage progressed but alternated missing native packages.
+
+3. **Observation:** Separate `--no-save` native installs caused one package to disappear after the second install.
+   - **Hypothesis:** subsequent install prunes or rewrites temporary state.
+   - **Procedure:** Install both native packages in one command:
+     - `npm install --no-save @oxc-minify/binding-linux-x64-gnu@0.112.0 @rollup/rollup-linux-x64-gnu@4.57.1`
+   - **Outcome:** `Install dependencies` step reached success in run `24526997904`.
+
+4. **Observation:** Build then failed at `Generate static site` with unresolved import:
+   - `Rollup failed to resolve import "/artilora_name.png" from pages/about.vue`
+   - **Hypothesis:** Linux case-sensitivity mismatch between import path and actual file (`public/Artilora_name.png`).
+   - **Procedure:** Updated `pages/about.vue` image source to `/Artilora_name.png`.
+   - **Outcome:** Local patch applied. Pending commit/push/rerun verification at time of this log snapshot.
+
+**Commits Applied During S015:**
+- `5cad639` — `fix: resolve oxc-minify native binding for GitHub Actions`
+- `fc2f861` — `fix: make CI install deterministic for oxc binding`
+- `7747c33` — `fix: install rollup linux native binding in CI`
+- `179a5ac` — `fix: install linux native bindings in one npm command`
+
+**Current Status:** In-progress iterative deployment debugging. Dependency installation issue is mitigated; current focus is static generation path correctness and successful completion of build+deploy jobs.
+
+### 2026-04-16 — S014: GitHub Pages Migration & SSG Setup
+
+**Context:** Migrating the Artilora website from the local Ubuntu VM docker environment to a public production environment hosted on GitHub Pages (using custom domain `artilora.art`). Completely replacing the old legacy standard HTML website.
+
+**Thought Process & Strategy:**
+- **Rendering Strategy:** The codebase was setup as SPA (`ssr: false`). For an art portfolio, SEO and initial load speed is critical. We are switching to SSG (`ssr: true`) and utilizing Nitro's `github-pages` preset.
+- **Deployment Strategy:** To keep the repository clean from compiled build artifacts (`.html` files mixed in the root), we developed a Continuous Deployment pipeline using GitHub Actions (`actions/deploy-pages@v4`) triggered on `main` branch pushes.
+- **Custom Domain Preservation:** Because we are force-pushing and wiping the old repo structure, we generated a `public/CNAME` file so Nuxt automatically bundles it, ensuring `artilora.art` routing doesn't break.
+- **Procedural Steps:** Initialize local Git -> add `ustemp-lgtm/artilora` remote -> run a force push (`git push -u origin main -f`) to definitively establish this Nuxt build as the new source of truth.
+
+**Critical Execution Constraints (Enforced this session):**
+- **REPOSITORY ISOLATION:** Operational scope is STRICTLY locked to the `artilora` repository. Absolutely no reading, auditing, modifying, or pushing to `artilora-academy`, `portfolio`, `landing-page-template`, or `ecommerce-backend`.
+
+**Current Status:** Pre-migration configurations are applied. The `git push` command is currently blocked, awaiting the user to authenticate GitHub credentials in their browser.
 
 ### 2026-04-14 — S013: Pre-Migration Verification & VM Transfer Prep
 

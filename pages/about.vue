@@ -431,7 +431,7 @@
         <!-- Main Title -->
         <div style="text-align: center; margin-bottom: 10px;">
           <div style="display: flex; flex-direction: column; align-items: center; gap: 0;">
-            <img src="/artilora_name.png" alt="ARTILORA" style="max-width: 600px; width: 100%; height: auto; display: block;" />
+            <img src="/Artilora_name.png" alt="ARTILORA" style="max-width: 600px; width: 100%; height: auto; display: block;" />
             <p style="font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: 300; color: #87CEFA; letter-spacing: 0.1em; margin: 0; padding: 0;">Sculpted by Nature</p>
           </div>
         </div>
