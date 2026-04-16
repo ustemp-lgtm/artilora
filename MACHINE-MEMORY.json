@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "project_id": "artilora-website",
-  "last_updated": "2026-04-16T20:55:00+02:00",
+  "last_updated": "2026-04-16T21:05:00+02:00",
   "purpose": "Centralized AI Brain for Artilora Project",
   
   "system_context": {
@@ -68,6 +68,12 @@
       "failed_approaches": ["Relying on existing token without refresh", "Adjusting credential helper only"],
       "verified_solution": "Run gh auth refresh with required scopes (repo, workflow, read:org), complete device authorization promptly, then push via HTTPS.",
       "conceptual_lesson": "Repository API permission checks and git transport authorization can diverge temporarily; always validate by an actual push after auth changes."
+    },
+    {
+      "issue": "Entry preloader appeared unresponsive on live site (click to proceed did not advance)",
+      "failed_approaches": ["Relying on a single @click handler on selectable text layer"],
+      "verified_solution": "Harden preloader interaction with click/pointer/touch/keyboard handlers, prevent text-selection interference, guard against double-start, and add short auto-start fallback after hydration.",
+      "conceptual_lesson": "Critical entry interactions on static deployments need multi-input event handling and a resilient fallback path to avoid dead-end UX under browser/device variance."
     }
   ],
 
@@ -80,16 +86,17 @@
     "docker-compose.yml": "Defines the container mount pointing to /home/frank/artilora and binds port 3009.",
     "pages/about.vue": "Contains one of the Artilora logo references; case-sensitive asset paths must remain correct for Linux builds.",
     "pages/index.vue": "Contains media references used during static generation; every referenced asset must exist in public/ for GitHub Pages build success.",
+    "components/ThePreloader.vue": "Critical entry gate for the site; must support reliable proceed interaction across click/touch/keyboard and preserve no-dead-end fallback behavior.",
     "nuxt.config.ts": "Primary application configuration, handles Vite server polling and dev rules.",
     "app.vue": "Root layout structure."
   },
 
   "live_operation_state": {
-    "session_id": "S015",
-    "session_name": "GitHub Pages Deployment Debugging",
-    "status": "resolved",
+    "session_id": "S016",
+    "session_name": "Live Interaction Hotfix",
+    "status": "in_progress",
     "repo_scope_lock": "STRICTLY artilora repository only",
-    "current_goal": "Maintain successful GitHub Pages deployment baseline and prevent regression.",
+    "current_goal": "Restore reliable entry interaction so users can proceed from the preloader screen.",
     "latest_known_run": {
       "run_id": 24527276316,
       "head_sha": "2c4eff907ba5fef52e2277498ed7621ecc2f3d67",
@@ -150,6 +157,13 @@
         "procedure_selected": "Verified status via gh run view JSON output and confirmed all steps green.",
         "result": "S015 remediation objective achieved.",
         "next_planned_action": "Stabilization phase: ensure future content changes keep case-correct, existing public asset paths."
+      },
+      {
+        "timestamp": "2026-04-16T21:05:00+02:00",
+        "observation": "User reported site loads but cannot proceed past click-to-start screen.",
+        "procedure_selected": "Patched components/ThePreloader.vue with robust multi-input start handlers and auto-start fallback.",
+        "result": "Patch applied locally; pending deployment and live validation.",
+        "next_planned_action": "Push hotfix and verify GitHub Actions deployment run success."
       }
     ]
   },

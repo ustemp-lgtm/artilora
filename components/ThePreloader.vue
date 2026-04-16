@@ -1,7 +1,19 @@
 <template>
   <Transition name="fade">
     <!-- Click to Start Screen -->
-    <div v-if="showClickToStart" @click="startAnimation" class="fixed inset-0 z-[101] bg-black flex flex-col items-center justify-center cursor-pointer" style="background-color: #000000;">
+    <div
+      v-if="showClickToStart"
+      @click="handleStart"
+      @pointerup="handleStart"
+      @touchend.prevent="handleStart"
+      @keydown.enter.prevent="handleStart"
+      @keydown.space.prevent="handleStart"
+      class="fixed inset-0 z-[101] bg-black flex flex-col items-center justify-center cursor-pointer"
+      style="background-color: #000000; user-select: none; -webkit-user-select: none; touch-action: manipulation;"
+      role="button"
+      tabindex="0"
+      aria-label="Enter Artilora"
+    >
       <!-- Preload Comfortaa font -->
       <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       
@@ -11,7 +23,7 @@
         <div class="golden-line line-top-2"></div>
       </div>
       
-      <div class="text-center relative z-10">
+      <div class="text-center relative z-10 pointer-events-none">
         <p class="text-2xl md:text-4xl text-gold animate-pulse mb-2" style="font-family: 'Bradley Hand ITC', cursive; color: #87CEFA;">
           Click to proceed
         </p>
@@ -84,7 +96,10 @@ const isLoading = useState('isLoading', () => true)
 const showPreloader = ref(false)
 const showClickToStart = ref(true)
 const count = ref(0)
+const hasStarted = ref(false)
 let boomAudio = null
+let progressTimer = null
+let autoStartTimer = null
 
 if (typeof window !== 'undefined') {
   boomAudio = new Audio('/boom.mp3')
@@ -100,6 +115,9 @@ const playBoomSound = () => {
 }
 
 const startAnimation = () => {
+  if (hasStarted.value) return
+  hasStarted.value = true
+
   showClickToStart.value = false
   showPreloader.value = true
   
@@ -120,11 +138,12 @@ const startAnimation = () => {
   
   let currentProgress = 0
 
-  const timer = setInterval(() => {
+  progressTimer = setInterval(() => {
     currentProgress += increment
     if (currentProgress >= 100) {
       count.value = 100
-      clearInterval(timer)
+      clearInterval(progressTimer)
+      progressTimer = null
       isLoading.value = false
       setTimeout(() => {
         showPreloader.value = false
@@ -137,6 +156,35 @@ const startAnimation = () => {
     }
   }, interval)
 }
+
+const handleStart = () => {
+  startAnimation()
+}
+
+onMounted(() => {
+  // Fallback: if interaction is missed on first paint, auto-start after a short delay.
+  autoStartTimer = setTimeout(() => {
+    if (showClickToStart.value) {
+      startAnimation()
+    }
+  }, 4000)
+})
+
+onUnmounted(() => {
+  if (autoStartTimer) {
+    clearTimeout(autoStartTimer)
+    autoStartTimer = null
+  }
+
+  if (progressTimer) {
+    clearInterval(progressTimer)
+    progressTimer = null
+  }
+
+  if (typeof document !== 'undefined') {
+    document.body.style.overflow = ''
+  }
+})
 </script>
 
 <style scoped>
