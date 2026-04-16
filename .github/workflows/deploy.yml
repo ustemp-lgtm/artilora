@@ -32,7 +32,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --include=optional
 
       - name: Generate static site
         run: npm run generate
