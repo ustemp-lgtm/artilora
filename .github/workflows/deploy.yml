@@ -34,8 +34,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm install --include=optional --ignore-scripts
-          npm install --no-save @oxc-minify/binding-linux-x64-gnu@0.112.0
-          npm install --no-save @rollup/rollup-linux-x64-gnu@4.57.1
+          npm install --no-save @oxc-minify/binding-linux-x64-gnu@0.112.0 @rollup/rollup-linux-x64-gnu@4.57.1
           npx nuxt prepare
 
       - name: Generate static site
