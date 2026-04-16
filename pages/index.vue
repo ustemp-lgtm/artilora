@@ -149,15 +149,12 @@
             <!-- Video Section -->
             <div class="mb-10 flex justify-center">
               <div class="primus-video-container max-w-lg w-full" style="border: 2px solid #FFD700; border-radius: 12px; overflow: hidden; box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); max-height: 220px; display: flex; align-items: center; justify-content: center; background-color: transparent;">
-                <video 
-                  controls 
+                <img
+                  src="/primus_final.png"
+                  alt="Primus"
                   class="w-full object-contain"
                   style="max-height: 220px; display: block;"
-                  poster="/winged_watchers.jpg"
-                >
-                  <source src="/primus_video.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
+                />
               </div>
             </div>
           </ScrollAnimated>

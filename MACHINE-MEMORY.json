@@ -73,6 +73,7 @@
     ".kiro/memory/LESSONS_LEARNED.md": "The chronological narrative of all rules and acquired knowledge.",
     "docker-compose.yml": "Defines the container mount pointing to /home/frank/artilora and binds port 3009.",
     "pages/about.vue": "Contains one of the Artilora logo references; case-sensitive asset paths must remain correct for Linux builds.",
+    "pages/index.vue": "Contains media references used during static generation; every referenced asset must exist in public/ for GitHub Pages build success.",
     "nuxt.config.ts": "Primary application configuration, handles Vite server polling and dev rules.",
     "app.vue": "Root layout structure."
   },
@@ -84,11 +85,11 @@
     "repo_scope_lock": "STRICTLY artilora repository only",
     "current_goal": "Make Deploy to GitHub Pages workflow pass build and deploy jobs.",
     "latest_known_run": {
-      "run_id": 24526997904,
-      "head_sha": "179a5acbf69f059d629f968c222a5fb5d591304e",
+      "run_id": 24527111193,
+      "head_sha": "ee8446ff83a20edbed95ed77eaf43c82db2bc0d6",
       "conclusion": "failure",
       "failed_step": "build -> Generate static site",
-      "error_summary": "Rollup failed to resolve import '/artilora_name.png' from pages/about.vue"
+      "error_summary": "Rollup failed to resolve import '/primus_video.mp4' from pages/index.vue"
     },
     "working_log": [
       {
@@ -109,8 +110,15 @@
         "timestamp": "2026-04-16T20:30:00+02:00",
         "observation": "Generate step failed with case-sensitive unresolved import '/artilora_name.png' from pages/about.vue.",
         "procedure_selected": "Align path to '/Artilora_name.png' to match public asset filename exactly.",
-        "result": "Code patched locally; pending commit/push and rerun validation.",
-        "next_planned_action": "Commit path fix, push, monitor next run until build is green."
+        "result": "Committed and pushed in ee8446f. Subsequent run passed install step and exposed next generate-stage asset failure.",
+        "next_planned_action": "Resolve additional missing static asset references uncovered by generate step."
+      },
+      {
+        "timestamp": "2026-04-16T20:40:00+02:00",
+        "observation": "Run 24527111193 failed at generate step with unresolved '/primus_video.mp4' from pages/index.vue; file does not exist in public/.",
+        "procedure_selected": "Replace missing video reference with existing public asset '/primus_final.png' to keep section renderable and unblock static build.",
+        "result": "Patch applied locally to pages/index.vue; pending commit/push/rerun.",
+        "next_planned_action": "Commit index fix, push main, monitor build and deploy completion."
       }
     ]
   },

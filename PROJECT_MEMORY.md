@@ -162,15 +162,22 @@ The website is built for the user's father. The development workflow is:
    - `Rollup failed to resolve import "/artilora_name.png" from pages/about.vue`
    - **Hypothesis:** Linux case-sensitivity mismatch between import path and actual file (`public/Artilora_name.png`).
    - **Procedure:** Updated `pages/about.vue` image source to `/Artilora_name.png`.
-   - **Outcome:** Local patch applied. Pending commit/push/rerun verification at time of this log snapshot.
+   - **Outcome:** Fix committed and pushed as `ee8446f`; subsequent run advanced past this error.
+
+5. **Observation:** Next generate-stage failure surfaced in run `24527111193`:
+   - `Rollup failed to resolve import "/primus_video.mp4" from pages/index.vue`
+   - **Hypothesis:** Referenced media does not exist in repository/public assets.
+   - **Procedure:** Replace missing video source with existing deploy-safe asset (`/primus_final.png`) in `pages/index.vue`.
+   - **Outcome:** Local patch applied. Pending commit/push/rerun verification.
 
 **Commits Applied During S015:**
 - `5cad639` — `fix: resolve oxc-minify native binding for GitHub Actions`
 - `fc2f861` — `fix: make CI install deterministic for oxc binding`
 - `7747c33` — `fix: install rollup linux native binding in CI`
 - `179a5ac` — `fix: install linux native bindings in one npm command`
+- `ee8446f` — `fix: resolve case-sensitive asset path and update machine memory log`
 
-**Current Status:** In-progress iterative deployment debugging. Dependency installation issue is mitigated; current focus is static generation path correctness and successful completion of build+deploy jobs.
+**Current Status:** In-progress iterative deployment debugging. Dependency installation issue is mitigated; current focus is resolving remaining missing static asset references so generate/build/deploy complete successfully.
 
 ### 2026-04-16 — S014: GitHub Pages Migration & SSG Setup
 
