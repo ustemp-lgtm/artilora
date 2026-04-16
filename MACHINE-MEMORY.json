@@ -81,15 +81,15 @@
   "live_operation_state": {
     "session_id": "S015",
     "session_name": "GitHub Pages Deployment Debugging",
-    "status": "in_progress",
+    "status": "resolved",
     "repo_scope_lock": "STRICTLY artilora repository only",
-    "current_goal": "Make Deploy to GitHub Pages workflow pass build and deploy jobs.",
+    "current_goal": "Maintain successful GitHub Pages deployment baseline and prevent regression.",
     "latest_known_run": {
-      "run_id": 24527111193,
-      "head_sha": "ee8446ff83a20edbed95ed77eaf43c82db2bc0d6",
-      "conclusion": "failure",
-      "failed_step": "build -> Generate static site",
-      "error_summary": "Rollup failed to resolve import '/primus_video.mp4' from pages/index.vue"
+      "run_id": 24527187013,
+      "head_sha": "3fa8d1320f684d75a5e94b3aeba00a0497bbf9b3",
+      "conclusion": "success",
+      "failed_step": "none",
+      "error_summary": "none"
     },
     "working_log": [
       {
@@ -117,8 +117,15 @@
         "timestamp": "2026-04-16T20:40:00+02:00",
         "observation": "Run 24527111193 failed at generate step with unresolved '/primus_video.mp4' from pages/index.vue; file does not exist in public/.",
         "procedure_selected": "Replace missing video reference with existing public asset '/primus_final.png' to keep section renderable and unblock static build.",
-        "result": "Patch applied locally to pages/index.vue; pending commit/push/rerun.",
-        "next_planned_action": "Commit index fix, push main, monitor build and deploy completion."
+        "result": "Committed and pushed in 3fa8d13; rerun completed successfully.",
+        "next_planned_action": "Keep memory synchronized and monitor future runs for new unresolved static assets."
+      },
+      {
+        "timestamp": "2026-04-16T20:45:00+02:00",
+        "observation": "Run 24527187013 completed with build success and deploy success on GitHub Pages.",
+        "procedure_selected": "Verified status via gh run view JSON output and confirmed all steps green.",
+        "result": "S015 remediation objective achieved.",
+        "next_planned_action": "Stabilization phase: ensure future content changes keep case-correct, existing public asset paths."
       }
     ]
   },

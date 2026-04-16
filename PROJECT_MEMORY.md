@@ -168,7 +168,7 @@ The website is built for the user's father. The development workflow is:
    - `Rollup failed to resolve import "/primus_video.mp4" from pages/index.vue`
    - **Hypothesis:** Referenced media does not exist in repository/public assets.
    - **Procedure:** Replace missing video source with existing deploy-safe asset (`/primus_final.png`) in `pages/index.vue`.
-   - **Outcome:** Local patch applied. Pending commit/push/rerun verification.
+   - **Outcome:** Fixed and committed as `3fa8d13`; rerun succeeded.
 
 **Commits Applied During S015:**
 - `5cad639` — `fix: resolve oxc-minify native binding for GitHub Actions`
@@ -176,8 +176,9 @@ The website is built for the user's father. The development workflow is:
 - `7747c33` — `fix: install rollup linux native binding in CI`
 - `179a5ac` — `fix: install linux native bindings in one npm command`
 - `ee8446f` — `fix: resolve case-sensitive asset path and update machine memory log`
+- `3fa8d13` — `fix: replace missing homepage video asset and log deployment state`
 
-**Current Status:** In-progress iterative deployment debugging. Dependency installation issue is mitigated; current focus is resolving remaining missing static asset references so generate/build/deploy complete successfully.
+**Current Status:** ✅ S015 resolved. GitHub Actions run `24527187013` completed with both `build` and `deploy` jobs successful, and the site is now deploying through GitHub Pages pipeline as intended.
 
 ### 2026-04-16 — S014: GitHub Pages Migration & SSG Setup
 
