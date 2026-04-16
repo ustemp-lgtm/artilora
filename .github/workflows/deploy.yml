@@ -32,7 +32,10 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install --include=optional
+        run: |
+          npm install --include=optional --ignore-scripts
+          npm install --no-save @oxc-minify/binding-linux-x64-gnu@0.112.0
+          npx nuxt prepare
 
       - name: Generate static site
         run: npm run generate
