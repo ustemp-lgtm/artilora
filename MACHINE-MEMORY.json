@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "project_id": "artilora-website",
-  "last_updated": "2026-04-16T21:05:00+02:00",
+  "last_updated": "2026-04-16T21:20:00+02:00",
   "purpose": "Centralized AI Brain for Artilora Project",
   
   "system_context": {
@@ -94,12 +94,12 @@
   "live_operation_state": {
     "session_id": "S016",
     "session_name": "Live Interaction Hotfix",
-    "status": "in_progress",
+    "status": "resolved",
     "repo_scope_lock": "STRICTLY artilora repository only",
-    "current_goal": "Restore reliable entry interaction so users can proceed from the preloader screen.",
+    "current_goal": "Maintain stable proceed interaction and monitor for client-side regressions.",
     "latest_known_run": {
-      "run_id": 24527276316,
-      "head_sha": "2c4eff907ba5fef52e2277498ed7621ecc2f3d67",
+      "run_id": 24530451029,
+      "head_sha": "b21a7dcce5d0bdba03d9aa1f9ecf9d47b6d1e2f3",
       "conclusion": "success",
       "failed_step": "none",
       "error_summary": "none"
@@ -114,13 +114,19 @@
         "run_id": 24527276316,
         "conclusion": "success",
         "note": "Post-memory-update validation run; confirms no regression."
+      },
+      {
+        "run_id": 24530451029,
+        "conclusion": "success",
+        "note": "S016 preloader interaction hotfix deployment run; build and deploy successful."
       }
     ],
     "session_lessons_learned": [
       "For Nuxt/Vite on GitHub runners, optional native dependencies can fail nondeterministically; deterministic install order with explicit bindings is safer than raw npm ci in this repository state.",
       "When one missing static asset is fixed, rerun until the next unresolved import is revealed; treat generate failures as a chain until a full green run is achieved.",
       "Asset naming must be validated for Linux case sensitivity across all page and component references before production CI.",
-      "Authentication troubleshooting must end with a real git push test, not only gh auth status output."
+      "Authentication troubleshooting must end with a real git push test, not only gh auth status output.",
+      "Preloader entry gates should never depend on a single input event; always support pointer, touch, keyboard, and a safe automatic fallback."
     ],
     "working_log": [
       {
@@ -162,8 +168,8 @@
         "timestamp": "2026-04-16T21:05:00+02:00",
         "observation": "User reported site loads but cannot proceed past click-to-start screen.",
         "procedure_selected": "Patched components/ThePreloader.vue with robust multi-input start handlers and auto-start fallback.",
-        "result": "Patch applied locally; pending deployment and live validation.",
-        "next_planned_action": "Push hotfix and verify GitHub Actions deployment run success."
+        "result": "Patch deployed successfully in run 24530451029.",
+        "next_planned_action": "Watch for user confirmation of restored proceed behavior and keep fallback in place."
       }
     ]
   },
