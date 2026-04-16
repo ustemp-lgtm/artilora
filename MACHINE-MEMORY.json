@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "project_id": "artilora-website",
-  "last_updated": "2026-04-16T21:20:00+02:00",
+  "last_updated": "2026-04-16T21:35:00+02:00",
   "purpose": "Centralized AI Brain for Artilora Project",
   
   "system_context": {
@@ -74,6 +74,12 @@
       "failed_approaches": ["Relying on a single @click handler on selectable text layer"],
       "verified_solution": "Harden preloader interaction with click/pointer/touch/keyboard handlers, prevent text-selection interference, guard against double-start, and add short auto-start fallback after hydration.",
       "conceptual_lesson": "Critical entry interactions on static deployments need multi-input event handling and a resilient fallback path to avoid dead-end UX under browser/device variance."
+    },
+    {
+      "issue": "GitHub Pages served repository README instead of Nuxt site despite successful workflow runs",
+      "failed_approaches": ["Assuming successful Actions run alone guarantees live Pages source is workflow-backed"],
+      "verified_solution": "Validate repo Pages config via API. If build_type/source mismatch is found, set Pages to workflow mode, then rerun deploy workflow and verify live HTML markers.",
+      "conceptual_lesson": "A green CI/CD pipeline can coexist with incorrect Pages serving mode. Always verify both deployment run status and Pages source mode when live output is unexpected."
     }
   ],
 
@@ -98,8 +104,8 @@
     "repo_scope_lock": "STRICTLY artilora repository only",
     "current_goal": "Maintain stable proceed interaction and monitor for client-side regressions.",
     "latest_known_run": {
-      "run_id": 24530451029,
-      "head_sha": "b21a7dcce5d0bdba03d9aa1f9ecf9d47b6d1e2f3",
+      "run_id": 24530537766,
+      "head_sha": "6c21aeb70518e2058fcf07992935d5630ab109b1",
       "conclusion": "success",
       "failed_step": "none",
       "error_summary": "none"
@@ -119,6 +125,11 @@
         "run_id": 24530451029,
         "conclusion": "success",
         "note": "S016 preloader interaction hotfix deployment run; build and deploy successful."
+      },
+      {
+        "run_id": 24530537766,
+        "conclusion": "success",
+        "note": "Workflow-mode redeploy validation run; confirmed live page serves Nuxt HTML, not README markdown."
       }
     ],
     "session_lessons_learned": [
@@ -126,7 +137,8 @@
       "When one missing static asset is fixed, rerun until the next unresolved import is revealed; treat generate failures as a chain until a full green run is achieved.",
       "Asset naming must be validated for Linux case sensitivity across all page and component references before production CI.",
       "Authentication troubleshooting must end with a real git push test, not only gh auth status output.",
-      "Preloader entry gates should never depend on a single input event; always support pointer, touch, keyboard, and a safe automatic fallback."
+      "Preloader entry gates should never depend on a single input event; always support pointer, touch, keyboard, and a safe automatic fallback.",
+      "When a deployed custom domain shows README-like markdown, verify Pages build_type/source immediately before debugging app code."
     ],
     "working_log": [
       {
@@ -170,6 +182,13 @@
         "procedure_selected": "Patched components/ThePreloader.vue with robust multi-input start handlers and auto-start fallback.",
         "result": "Patch deployed successfully in run 24530451029.",
         "next_planned_action": "Watch for user confirmation of restored proceed behavior and keep fallback in place."
+      },
+      {
+        "timestamp": "2026-04-16T21:30:00+02:00",
+        "observation": "Live domain displayed README markdown although deploy workflow succeeded.",
+        "procedure_selected": "Inspected Pages API config, switched to workflow-backed serving mode, reran deploy pipeline, and validated response HTML markers.",
+        "result": "Run 24530537766 succeeded; live site now serves Nuxt HTML with title 'Artilora - Born of Nature, Shaped by Art'.",
+        "next_planned_action": "Continue monitoring live behavior and capture any remaining UX regressions separately from deployment-source issues."
       }
     ]
   },
